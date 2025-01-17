@@ -148,11 +148,25 @@ def discover_movies_by_genre(genre_id):
 @cache_response()
 def get_movie_details(movie_id):
     try:
+        # Fetch movie details
         movie = tmdb_request(f'/movie/{movie_id}')
+        
+        # Fetch credits (cast and crew information)
         credits = tmdb_request(f'/movie/{movie_id}/credits')
         
-        # Add cast information to movie details
-        movie['cast'] = credits.get('cast', [])[:5]  # Get top 5 cast members
+        # Extract cast information
+        cast = credits.get('cast', [])
+        top_cast = [
+            {
+                "name": member.get("name"),
+                "character": member.get("character"),
+                "profile_path": member.get("profile_path"),
+            }
+            for member in cast[:5]  # Limit to top 5 cast members
+        ]
+        
+        # Add cast to movie details
+        movie['cast'] = top_cast
         
         return movie
     except requests.exceptions.RequestException as e:

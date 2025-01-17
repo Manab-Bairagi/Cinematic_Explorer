@@ -34,11 +34,16 @@ export const movieApi = {
     return response.data;
   },
 
- 
   getMoviesByGenre: async (genreId, page = 1) => {
     const response = await api.get(`/movies/discover/${genreId}`, {
-      params: { page }, 
+      params: { page },
     });
+    return response.data;
+  },
+
+  getMovieCast: async (id) => {
+    // New method to fetch the cast of a movie
+    const response = await api.get(`/movies/${id}/cast`);
     return response.data;
   },
 };
