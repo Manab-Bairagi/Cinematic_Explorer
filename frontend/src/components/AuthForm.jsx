@@ -18,7 +18,7 @@ function AuthForm({ setIsAuthenticated, setShowAuth }) {
 
     try {
       const endpoint = isLogin ? '/api/login' : '/api/register';
-      const response = await fetch(`https://movie-master-1.onrender.com${endpoint}`, {
+      const response = await fetch(`http://localhost:5000${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
