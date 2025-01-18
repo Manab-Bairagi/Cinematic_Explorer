@@ -7,6 +7,7 @@ import { MyList } from './pages/MyList';
 import { Navbar } from './components/Navbar';
 import MainPage from './pages/MainPage';
 import AuthForm from './components/AuthForm';
+export const BASE_URL = import.meta.env.MODE === "development" ? "http://127.0.0.1:5000/api" : "/api";
 
 // Create a new QueryClient instance
 const queryClient = new QueryClient();
