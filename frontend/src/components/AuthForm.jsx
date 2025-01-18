@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Lock, User } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';  // Import useNavigate
-export const BASE_URL = import.meta.env.MODE === "development" ? "https://movie-master-backend.onrender.com" : "/api";
+
 
 function AuthForm({ setIsAuthenticated, setShowAuth }) {
   const [isLogin, setIsLogin] = useState(true);
@@ -19,7 +19,7 @@ function AuthForm({ setIsAuthenticated, setShowAuth }) {
 
     try {
       const endpoint = isLogin ? '/api/login' : '/api/register';
-      const response = await fetch(`${BASE_URL}${endpoint}`, {
+      const response = await fetch(`https://movie-master-backend.onrender.com${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
