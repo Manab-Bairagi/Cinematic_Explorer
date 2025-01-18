@@ -42,7 +42,7 @@ export function Navbar() {
               damping: 15,
             }}
           >
-            Movie Master
+            Cinematic Explorer
           </motion.span>
         </Link>
 
