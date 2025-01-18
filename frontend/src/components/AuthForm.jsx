@@ -18,7 +18,7 @@ function AuthForm({ setIsAuthenticated, setShowAuth }) {
 
     try {
       const endpoint = isLogin ? '/api/login' : '/api/register';
-      const response = await fetch(`http://localhost:5000${endpoint}`, {
+      const response = await fetch(`https://movie-master-backend.vercel.app/${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
