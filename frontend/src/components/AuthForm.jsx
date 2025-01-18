@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Lock, User } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';  // Import useNavigate
-export const BASE_URL = import.meta.env.MODE === "development" ? "http://127.0.0.1:5000/api" : "/api";
+export const BASE_URL = import.meta.env.MODE === "development" ? "https://movie-master-backend.onrender.com" : "/api";
 
 function AuthForm({ setIsAuthenticated, setShowAuth }) {
   const [isLogin, setIsLogin] = useState(true);
